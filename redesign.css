@@ -365,12 +365,12 @@ body {
 }
 
 .hero-title-tvilling {
-  animation: heroTitleGlideLeft 1850ms var(--ease-premium) 640ms both;
+  animation: heroTitleGlideLeft 1450ms var(--ease-premium) both;
 }
 
 .hero-title-klippet {
   margin-left: clamp(118px, 12.8vw, 214px);
-  animation: heroTitleGlideRight 1850ms var(--ease-premium) 760ms both;
+  animation: heroTitleGlideRight 1450ms var(--ease-premium) both;
 }
 
 @keyframes heroTitleGlideLeft {
