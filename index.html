@@ -8,16 +8,30 @@
       name="description"
       content="Tvillingklippet AB i Kristinehamn. Klippning, skäggtrim och modern grooming med precision, omtanke och premiumkänsla."
     />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta property="og:title" content="Tvillingklippet AB | Frisör och barberare i Kristinehamn" />
+    <meta
+      property="og:description"
+      content="Boka klippning, skäggtrim, styling och hårborttagning hos Tvillingklippet AB på Kungsgatan 21A i Kristinehamn."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="assets/hero-barber-lounge.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="redesign.css" />
   </head>
   <body>
     <header class="site-header">
+      <a class="brand" href="#hem" aria-label="Tvillingklippet startsida">
+        <span class="brand-wordmark">TVILLINGKLIPPET</span>
+      </a>
+
       <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
         <span></span>
         <span></span>
@@ -31,7 +45,10 @@
         <a href="gallery.html">Galleri</a>
         <a href="#kontakt">Kontakt</a>
         <div class="mobile-menu-actions" role="group" aria-label="Snabba kontaktval">
-          <a class="mobile-action-card mobile-action-primary" href="tel:+46700328960" aria-label="Ring Tvillingklippet">
+          <a class="mobile-menu-booking" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+            <span class="booking-cta-label">Boka tid</span>
+          </a>
+          <a class="mobile-action-card" href="tel:+46700328960" aria-label="Ring Tvillingklippet">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.79.63 2.64a2 2 0 0 1-.45 2.11L8.09 9.67a16 16 0 0 0 6.24 6.24l1.2-1.2a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.64.63A2 2 0 0 1 22 16.92Z" />
             </svg>
@@ -53,6 +70,10 @@
           </a>
         </div>
       </nav>
+
+      <a class="header-cta" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+        <span class="booking-cta-label">Boka tid</span>
+      </a>
     </header>
 
     <main id="hem">
@@ -60,17 +81,44 @@
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-shade"></div>
         <div class="hero-content">
-          <p class="eyebrow">Barberare i Kristinehamn</p>
+          <nav class="hero-nav" aria-label="Startsidan">
+            <a href="#hem">Hem</a>
+            <a href="#behandlingar">Behandlingar/priser</a>
+            <a href="#om-oss">Om oss</a>
+            <a href="gallery.html">Galleri</a>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+          <p class="eyebrow">Frisör och barberare i Kristinehamn</p>
           <div class="hero-title-lockup">
             <h1 class="hero-split-title" aria-label="Tvillingklippet">
               <span class="hero-title-row hero-title-tvilling">Tvilling</span>
-              <span class="hero-title-row hero-title-klippet">Klippet</span>
+              <span class="hero-title-row hero-title-klippet">klippet</span>
             </h1>
           </div>
+          <p class="hero-text">Klippning, skäggtrim och styling på Kungsgatan 21A. Boka din tid direkt online.</p>
           <a class="hero-booking-link" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
-            Boka tid
+            <span class="booking-cta-label">Boka tid</span>
           </a>
         </div>
+      </section>
+
+      <section class="quick-booking-strip" aria-label="Snabb information">
+        <a href="https://www.google.com/maps/search/?api=1&query=Kungsgatan%2021A%2C%20681%2030%20Kristinehamn" target="_blank" rel="noreferrer">
+          <span>Adress</span>
+          <strong>Kungsgatan 21A</strong>
+        </a>
+        <a href="tel:+46700328960">
+          <span>Telefon</span>
+          <strong>070-032 89 60</strong>
+        </a>
+        <a href="#kontakt">
+          <span>Öppet idag</span>
+          <strong>Se öppettider</strong>
+        </a>
+        <a class="quick-booking-primary" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+          <span>Bokning</span>
+          <strong><span class="booking-cta-label">Boka på Bokadirekt</span></strong>
+        </a>
       </section>
 
       <section class="section treatments" id="behandlingar">
@@ -351,7 +399,12 @@
 
       <section class="section contact" id="kontakt">
         <div class="contact-hours-shell">
-          <h2>Öppettider</h2>
+          <div class="contact-heading-row">
+            <h2>Öppettider</h2>
+            <a class="contact-booking-link" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+              <span class="booking-cta-label">Boka tid</span>
+            </a>
+          </div>
 
           <div class="hours-poster-grid">
             <div class="hours-poster-card">

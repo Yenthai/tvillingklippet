@@ -1,14 +1,17 @@
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".site-nav");
 const header = document.querySelector(".site-header");
-const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
+const desktopQuery = window.matchMedia("(min-width: 981px)");
+
+const getHeaderScrollThreshold = () => (document.body.classList.contains("gallery-page") || !desktopQuery.matches ? 18 : 110);
 
 const syncHeaderState = () => {
-  header?.classList.toggle("is-scrolled", window.scrollY > 18);
+  header?.classList.toggle("is-scrolled", window.scrollY > getHeaderScrollThreshold());
 };
 
 syncHeaderState();
 window.addEventListener("scroll", syncHeaderState, { passive: true });
+desktopQuery.addEventListener?.("change", syncHeaderState);
 
 toggle?.addEventListener("click", () => {
   const isOpen = document.body.classList.toggle("menu-open");
@@ -17,7 +20,9 @@ toggle?.addEventListener("click", () => {
 });
 
 nav?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
+  const targetLink = event.target instanceof Element ? event.target.closest("a") : null;
+
+  if (targetLink) {
     document.body.classList.remove("menu-open");
     toggle?.setAttribute("aria-expanded", "false");
     toggle?.setAttribute("aria-label", "Öppna meny");
@@ -30,59 +35,6 @@ window.addEventListener("keydown", (event) => {
   toggle?.setAttribute("aria-expanded", "false");
   toggle?.setAttribute("aria-label", "Öppna meny");
 });
-
-const setActiveNavLink = (activeLink) => {
-  navLinks.forEach((link) => {
-    const isActive = link === activeLink;
-    link.classList.toggle("is-active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", activeLink.hash ? "location" : "page");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-};
-
-const galleryNavLink = navLinks.find((link) => link.getAttribute("href")?.endsWith("gallery.html"));
-
-if (document.body.classList.contains("gallery-page")) {
-  setActiveNavLink(galleryNavLink);
-} else {
-  const sectionLinks = navLinks.filter((link) => link.hash && link.getAttribute("href")?.startsWith("#"));
-  const sectionMap = new Map(
-    sectionLinks
-      .map((link) => [document.querySelector(link.hash), link])
-      .filter(([section]) => section)
-  );
-  const initialSectionLink = sectionLinks.find((link) => link.hash === window.location.hash) || sectionLinks[0];
-
-  if (initialSectionLink) setActiveNavLink(initialSectionLink);
-
-  if (sectionMap.size && "IntersectionObserver" in window) {
-    const activeSections = new Map();
-
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            activeSections.set(entry.target, entry.intersectionRatio);
-          } else {
-            activeSections.delete(entry.target);
-          }
-        });
-
-        const currentSection = [...activeSections.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
-        const currentLink = sectionMap.get(currentSection);
-        if (currentLink) setActiveNavLink(currentLink);
-      },
-      { rootMargin: "-28% 0px -54% 0px", threshold: [0.08, 0.18, 0.32, 0.5] }
-    );
-
-    sectionMap.forEach((_, section) => navObserver.observe(section));
-  } else if (sectionLinks.length) {
-    setActiveNavLink(sectionLinks[0]);
-  }
-}
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealTargets = document.querySelectorAll(

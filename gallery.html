@@ -8,16 +8,30 @@
       name="description"
       content="Galleri från Tvillingklippet AB i Kristinehamn. Se klippningar, detaljer och finish från salongen."
     />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta property="og:title" content="Galleri | Tvillingklippet AB" />
+    <meta
+      property="og:description"
+      content="Se klippningar, fades och finish från Tvillingklippet AB i Kristinehamn."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="assets/tvillingklippet-work-1.webp" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="redesign.css" />
   </head>
   <body class="gallery-page">
     <header class="site-header">
+      <a class="brand" href="index.html#hem" aria-label="Tvillingklippet startsida">
+        <span class="brand-wordmark">TVILLINGKLIPPET</span>
+      </a>
+
       <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
         <span></span>
         <span></span>
@@ -31,7 +45,10 @@
         <a href="gallery.html">Galleri</a>
         <a href="index.html#kontakt">Kontakt</a>
         <div class="mobile-menu-actions" role="group" aria-label="Snabba kontaktval">
-          <a class="mobile-action-card mobile-action-primary" href="tel:+46700328960" aria-label="Ring Tvillingklippet">
+          <a class="mobile-menu-booking" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+            <span class="booking-cta-label">Boka tid</span>
+          </a>
+          <a class="mobile-action-card" href="tel:+46700328960" aria-label="Ring Tvillingklippet">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.79.63 2.64a2 2 0 0 1-.45 2.11L8.09 9.67a16 16 0 0 0 6.24 6.24l1.2-1.2a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.64.63A2 2 0 0 1 22 16.92Z" />
             </svg>
@@ -53,6 +70,10 @@
           </a>
         </div>
       </nav>
+
+      <a class="header-cta" href="https://www.bokadirekt.se/places/tvillingklippet-ab-133892" target="_blank" rel="noreferrer">
+        <span class="booking-cta-label">Boka tid</span>
+      </a>
     </header>
 
     <main>
