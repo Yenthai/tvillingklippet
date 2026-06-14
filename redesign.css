@@ -360,34 +360,36 @@ body {
 .hero-title-row {
   opacity: 1;
   will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .hero-title-tvilling {
-  animation: heroTitleGlideLeft 2600ms var(--ease-premium) 420ms both;
+  animation: heroTitleGlideLeft 1850ms var(--ease-premium) 640ms both;
 }
 
 .hero-title-klippet {
   margin-left: clamp(118px, 12.8vw, 214px);
-  animation: heroTitleGlideRight 2600ms var(--ease-premium) 560ms both;
+  animation: heroTitleGlideRight 1850ms var(--ease-premium) 760ms both;
 }
 
 @keyframes heroTitleGlideLeft {
   0% {
-    transform: translateX(-58px);
+    transform: translate3d(-54px, 0, 0);
   }
 
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes heroTitleGlideRight {
   0% {
-    transform: translateX(58px);
+    transform: translate3d(54px, 0, 0);
   }
 
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
