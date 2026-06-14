@@ -358,8 +358,8 @@ body {
 }
 
 .hero-title-row {
-  opacity: 0;
-  will-change: opacity, transform, filter;
+  opacity: 1;
+  will-change: transform;
 }
 
 .hero-title-tvilling {
@@ -373,38 +373,20 @@ body {
 
 @keyframes heroTitleGlideLeft {
   0% {
-    opacity: 0;
-    filter: blur(10px);
     transform: translateX(-58px);
   }
 
-  46% {
-    opacity: 0.72;
-    filter: blur(4px);
-  }
-
   100% {
-    opacity: 1;
-    filter: blur(0);
     transform: translateX(0);
   }
 }
 
 @keyframes heroTitleGlideRight {
   0% {
-    opacity: 0;
-    filter: blur(10px);
     transform: translateX(58px);
   }
 
-  46% {
-    opacity: 0.72;
-    filter: blur(4px);
-  }
-
   100% {
-    opacity: 1;
-    filter: blur(0);
     transform: translateX(0);
   }
 }
