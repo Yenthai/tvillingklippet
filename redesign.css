@@ -763,17 +763,17 @@ body {
 
 .quick-booking-strip .quick-booking-primary {
   min-height: 86px;
-  border-color: rgba(11, 11, 11, 0.34);
+  border-color: rgba(var(--launch-ivory-rgb), 0.14);
   border-radius: 0;
   border-right: 0;
-  border-left: 1px solid rgba(11, 11, 11, 0.34);
+  border-left: 1px solid rgba(var(--launch-ivory-rgb), 0.14);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0) 54%),
-    var(--launch-ivory);
-  color: var(--booking-cta-text-hover);
+    linear-gradient(180deg, rgba(var(--launch-ivory-rgb), 0.065), rgba(var(--launch-ivory-rgb), 0.012) 58%),
+    #050505;
+  color: var(--launch-ivory);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.58),
-    inset 0 -1px 0 rgba(11, 11, 11, 0.12);
+    inset 0 1px 0 rgba(var(--launch-ivory-rgb), 0.13),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
 }
 
 .quick-booking-strip .quick-booking-primary strong {
@@ -782,7 +782,7 @@ body {
 }
 
 .quick-booking-strip .quick-booking-primary > span {
-  color: rgba(11, 11, 11, 0.58);
+  color: rgba(199, 160, 90, 0.82);
 }
 
 .quick-booking-strip .quick-booking-primary .booking-cta-label {
