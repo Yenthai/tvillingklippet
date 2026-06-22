@@ -38,7 +38,7 @@ window.addEventListener("keydown", (event) => {
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealTargets = document.querySelectorAll(
-  ".section-heading, .price-category, .about-portrait, .about-copy, .gallery-shell, .gallery-tile, .gallery-swipe-hint, .contact-hours-shell, .hours-poster-card, .contact-strip"
+  ".section-heading, .price-category, .about-team, .about-person, .about-copy, .gallery-shell, .gallery-tile, .gallery-swipe-hint, .contact-hours-shell, .hours-poster-card, .contact-strip"
 );
 
 const lightbox = document.querySelector("[data-lightbox]");

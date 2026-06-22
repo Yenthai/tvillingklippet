@@ -1,0 +1,40 @@
+name: Sync Bokadirekt prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync prices
+        run: node scripts/sync-bokadirekt-prices.mjs
+
+      - name: Verify Bokadirekt source
+        run: node scripts/sync-bokadirekt-prices.mjs --check
+
+      - name: Commit price changes
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No price changes"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "chore: sync Bokadirekt prices"
+            git push
+          fi
