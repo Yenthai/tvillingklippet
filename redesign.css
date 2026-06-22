@@ -1609,6 +1609,11 @@ body {
   min-width: 0;
 }
 
+.about-team:focus-visible {
+  outline: 2px solid rgba(141, 105, 51, 0.52);
+  outline-offset: 6px;
+}
+
 .about-person {
   position: relative;
   display: grid;
@@ -2000,12 +2005,30 @@ body {
   }
 
   .about-team {
-    grid-template-columns: 1fr;
-    gap: 26px;
+    display: flex;
+    align-items: start;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 18px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about-team::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-person {
+    flex: 0 0 calc(100% - 34px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .about-person img {
-    min-height: clamp(320px, 58svh, 440px);
+    height: clamp(390px, 68svh, 540px);
+    min-height: 0;
     aspect-ratio: 4 / 5;
   }
 
@@ -2024,6 +2047,19 @@ body {
 }
 
 @media (max-width: 380px) {
+  .about-team {
+    gap: 12px;
+    scroll-padding-inline: 16px;
+  }
+
+  .about-person {
+    flex-basis: calc(100% - 26px);
+  }
+
+  .about-person img {
+    height: clamp(360px, 66svh, 500px);
+  }
+
   .contact-strip {
     grid-template-columns: 1fr;
   }
